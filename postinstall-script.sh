@@ -15,12 +15,6 @@ sudo apt upgrade -y
 sudo apt dist-upgrade -y
 
 echo "##################################################"
-echo "Package cleaning and removal..."
-echo "##################################################"
-sudo apt autoremove -y
-sudo apt autoclean -y
-
-echo "##################################################"
 echo "Installing Google Chrome..."
 echo "##################################################"
 wget -cO chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -158,4 +152,12 @@ echo "Removing some programs..."
 echo "##################################################"
 sudo apt remove rhythmbox thunderbird transmission pidgin hexchat cheese pix -y
 
+echo "##################################################"
+echo "Package cleaning and removal..."
+echo "##################################################"
+sudo apt autoremove -y
+sudo apt autoclean -y
 
+echo "##################################################"
+echo "This is the end..."
+echo "##################################################"
