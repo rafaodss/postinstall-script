@@ -1,6 +1,7 @@
 #!/bin/bash
 
-#SCRIPT DE PÓS INSTALAÇÃO PARA DISTROS LINUX BASEADAS NO UBUNTU/DEBIAN
+#SCRIPT DE PÓS INSTALAÇÃO PARA DISTROS UBUNTU/DEBIAN
+#POST INSTALL SCRIP FOR UBUNTU/DEBIAN DISTROS
 
 echo "##################################################"
 echo "Adding repository for mesa driver padoka..."
@@ -157,6 +158,18 @@ echo "Package cleaning and removal..."
 echo "##################################################"
 sudo apt autoremove -y
 sudo apt autoclean -y
+
+if [ `echo $XDG_CURRENT_DESKTOP` = "KDE" ];
+then
+    echo "##################################################"
+    echo "Installation and configuration of Latte Dock..."
+    echo "##################################################"
+    sudo apt install latte-dock
+    wget -c https://raw.githubusercontent.com/rafaodss/postinstall-script/master/Deepin.layout.latte
+    mv Deepin.layout.latte /home/rafael/.config/latte/
+    echo "[ModifierOnlyShortcuts]
+Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu" >> /home/rafael/.config/kwinrc
+fi
 
 echo "##################################################"
 echo "This is the end..."
