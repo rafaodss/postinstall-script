@@ -9,7 +9,7 @@ echo "##################################################"
 sudo add-apt-repository ppa:paulo-miguel-dias/pkppa -y
 
 echo "##################################################"
-echo "Updating system repositories..."
+echo "Updating system..."
 echo "##################################################"
 sudo apt update -y
 sudo apt upgrade -y
@@ -37,13 +37,14 @@ echo "##################################################"
 echo "Enabling support for Flatpak and Snap..."
 echo "##################################################"
 sudo apt install flatpak -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo apt install snapd -y
 
 echo "##################################################"
 echo "Replacing Gimp repo version for Flatpak version..."
 echo "##################################################"
 sudo apt remove gimp -y
-flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
+flatpak install flathub org.gimp.GIMP
 
 echo "##################################################"
 echo "Installing Telegram..."
@@ -141,12 +142,12 @@ sudo apt install calibre -y
 echo "##################################################"
 echo "Enabling video thumbnails for Dolphin..."
 echo "##################################################"
-sudo apt install ffmpegthumbs ffmpegthumbnailer
+sudo apt install ffmpegthumbs ffmpegthumbnailer -y
 
 echo "##################################################"
 echo "Installing Microsoft Fonts..."
 echo "##################################################"
-sudo apt install ttf-mscorefonts-installer
+sudo apt install ttf-mscorefonts-installer -y
 
 echo "##################################################"
 echo "Removing some programs..."
@@ -164,11 +165,10 @@ then
     echo "##################################################"
     echo "Installation and configuration of Latte Dock..."
     echo "##################################################"
-    sudo apt install latte-dock
-    wget -c https://raw.githubusercontent.com/rafaodss/postinstall-script/master/Deepin.layout.latte
-    mv Deepin.layout.latte /home/rafael/.config/latte/
+    sudo apt install latte-dock -y
+    mv Deepin.layout.latte ~/.config/latte/
     echo "[ModifierOnlyShortcuts]
-Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu" >> /home/rafael/.config/kwinrc
+Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu" >> ~/.config/kwinrc
 fi
 
 echo "##################################################"
