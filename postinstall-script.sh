@@ -4,16 +4,12 @@
 #POST INSTALL SCRIP FOR UBUNTU/DEBIAN DISTROS
 
 echo "##################################################"
-echo "Adding repository for mesa driver padoka..."
-echo "##################################################"
-sudo add-apt-repository ppa:paulo-miguel-dias/pkppa -y
-
-echo "##################################################"
 echo "Updating system..."
 echo "##################################################"
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt dist-upgrade -y
+pkcon update
 
 echo "##################################################"
 echo "Installing Google Chrome..."
@@ -50,12 +46,6 @@ echo "##################################################"
 echo "Installing Telegram..."
 echo "##################################################"
 flatpak install flathub org.telegram.desktop
-
-echo "##################################################"
-echo "Installing Balena Etcher..."
-echo "##################################################"
-wget -cO balena-etcher.deb https://github.com/balena-io/etcher/releases/download/v1.5.57/balena-etcher-electron_1.5.57_amd64.deb #update_link
-sudo apt install -y ./balena-etcher.deb
 
 echo "##################################################"
 echo "Installing Gparted..."
@@ -140,11 +130,6 @@ echo "##################################################"
 sudo apt install calibre -y
 
 echo "##################################################"
-echo "Enabling video thumbnails for Dolphin..."
-echo "##################################################"
-sudo apt install ffmpegthumbs ffmpegthumbnailer -y
-
-echo "##################################################"
 echo "Installing Microsoft Fonts..."
 echo "##################################################"
 sudo apt install ttf-mscorefonts-installer -y
@@ -163,13 +148,26 @@ sudo apt autoclean -y
 if [ `echo $XDG_CURRENT_DESKTOP` = "KDE" ];
 then
     echo "##################################################"
+    echo "Enabling video thumbnails for Dolphin..."
+    echo "##################################################"
+    sudo apt install ffmpegthumbs ffmpegthumbnailer -y
+    
+    echo "##################################################"
     echo "Installation and configuration of Latte Dock..."
     echo "##################################################"
     sudo apt install latte-dock -y
+    mkdir -p ~/.config/latte
     mv Deepin.layout.latte ~/.config/latte/
     echo "[ModifierOnlyShortcuts]
 Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu" >> ~/.config/kwinrc
 fi
+
+echo "##################################################"
+echo "Adding repository for mesa driver Kisak..."
+echo "##################################################"
+sudo apt-add-repository ppa:kisak/kisak-mesa -y
+sudo apt update && sudo apt upgrade
+pkcon update
 
 echo "##################################################"
 echo "This is the end..."
