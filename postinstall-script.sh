@@ -143,6 +143,21 @@ Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu" >> ~/.conf
 fi
 
 echo "##################################################"
+echo "Installing Anki..."
+echo "##################################################"
+sudo apt install ttf-mscorefonts-installer -y
+wget https://github.com/ankitects/anki/releases/download/2.1.26/anki-2.1.26-linux-amd64.tar.bz2
+tar xjf /anki-2.1.26-linux-amd64.tar.bz2
+cd anki-2.1.26-linux-amd64
+sudo make install -y
+
+echo "##################################################"
+echo "Installing Lutris..."
+echo "##################################################"
+wget -cO lutris.deb https://download.opensuse.org/repositories/home:/strycore/Debian_10/amdu64/lutris_0.5.7.1_amd64.deb
+sudo apt install -y ./lutris.deb
+
+echo "##################################################"
 echo "Adding repository for mesa driver Kisak..."
 echo "##################################################"
 sudo apt-add-repository ppa:kisak/kisak-mesa -y
