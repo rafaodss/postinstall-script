@@ -48,6 +48,21 @@ echo "##################################################"
 flatpak install flathub org.telegram.desktop
 
 echo "##################################################"
+echo "Installing Lollypop..."
+echo "##################################################"
+flatpak install flathub org.gnome.Lollypop
+
+echo "##################################################"
+echo "Installing Lollypop..."
+echo "##################################################"
+flatpak install flathub org.gnome.Lollypop
+
+echo "##################################################"
+echo "Installing Calibre..."
+echo "##################################################"
+flatpak install flathub com.calibre_ebook.calibre
+
+echo "##################################################"
 echo "Installing Gparted..."
 echo "##################################################"
 sudo apt install gparted -y
@@ -56,16 +71,6 @@ echo "##################################################"
 echo "Installing vlc..."
 echo "##################################################"
 sudo apt install vlc -y
-
-echo "##################################################"
-echo "Installing audacious..."
-echo "##################################################"
-sudo apt install audacious -y
-
-echo "##################################################"
-echo "Installing Visual Studio Code..."
-echo "##################################################"
-snap install code --classic
 
 echo "##################################################"
 echo "Installing qBittorrent..."
@@ -85,21 +90,6 @@ sudo apt install python3-pip -y
 sudo apt install python3-django -y
 
 echo "##################################################"
-echo "Installing Node JS..."
-echo "##################################################"
-sudo apt install nodejs -y
-
-echo "##################################################"
-echo "Installing PyCharm CE..."
-echo "##################################################"
-snap install pycharm-community --classic
-
-echo "##################################################"
-echo "Installing Simplenote..."
-echo "##################################################"
-sudo apt install simplenote -y
-
-echo "##################################################"
 echo "Installing Okular..."
 echo "##################################################"
 sudo apt install okular -y
@@ -115,19 +105,9 @@ echo "##################################################"
 sudo apt install neofetch -y
 
 echo "##################################################"
-echo "Installing htop..."
-echo "##################################################"
-sudo apt install htop -y
-
-echo "##################################################"
 echo "Installing Synaptic..."
 echo "##################################################"
 sudo apt install synaptic -y
-
-echo "##################################################"
-echo "Installing Calibre..."
-echo "##################################################"
-sudo apt install calibre -y
 
 echo "##################################################"
 echo "Installing Microsoft Fonts..."
