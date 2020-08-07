@@ -158,6 +158,12 @@ wget -cO lutris.deb https://download.opensuse.org/repositories/home:/strycore/De
 sudo apt install -y ./lutris.deb
 
 echo "##################################################"
+echo "Installing Lutris..."
+echo "##################################################"
+wget -cO stremio.deb https://dl.strem.io/shell-linux/v4.4.116/stremio_4.4.116-1_amd64.deb
+sudo apt install -y ./stremio.deb
+
+echo "##################################################"
 echo "Adding repository for mesa driver Kisak..."
 echo "##################################################"
 sudo apt-add-repository ppa:kisak/kisak-mesa -y
